@@ -1,0 +1,51 @@
+﻿@model CSharpNumbers.Models.NumRes
+@*
+    
+*@
+@{
+}
+
+<div class="text-center">
+
+    <h1>Enter two numbers and display the range on the screen</h1>
+    <p>With C#</p>
+
+
+</div>
+<div class="container">
+
+    <form asp-controller="Home" asp-action="App" method="post">
+        <div class="form-group">
+            <label asp-for="StartValue">Start Value </label>
+            <input type="number" asp-for="StartValue" placeholder="Starting Point"  />
+        </div>
+        <div class="form-group">
+            <label asp-for="EndValue">Start Value </label>
+            <input type="number" asp-for="EndValue" placeholder="Ending Poing"  />
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+
+    </form>
+    <hr />
+    @if (Model.Results.Count > 0)
+    {
+        <table class="table-striped table-hover table table-dark">
+            <thead>
+                <tr><th colspan="5">Number Range</th> </tr>
+
+            </thead> 
+
+        @for (int i = 0; i < Model.Results.Count(); i+= 5)
+        {
+            <tr>
+                    <td>@Model.Results[i]</td>
+                    <td>@Model.Results[i + 1]</td>
+                    <td>@Model.Results[i + 2]</td>
+                    <td>@Model.Results[i + 3]</td>
+                    <td>@Model.Results[i + 4]</td>    
+            </tr>
+        }
+        </table>
+    }
+
+</div>
